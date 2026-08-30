@@ -196,7 +196,7 @@ function PortfolioPage() {
           </span>
           <h1 className="mt-3 max-w-3xl font-display text-5xl font-extrabold leading-[1.05] md:text-6xl">
             Edits that hold attention{" "}
-            <span className="bg-gradient-brand bg-clip-text text-transparent">
+            <span className="text-gradient-brand">
               from frame one.
             </span>
           </h1>
