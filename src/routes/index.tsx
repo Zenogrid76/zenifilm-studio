@@ -169,40 +169,9 @@ function Home() {
 
           {/* Reels */}
           <div className="relative mt-16 md:mt-0 md:w-1/2">
-            <div className="grid rotate-3 grid-cols-2 gap-4">
-              <figure className="group relative aspect-[9/16] overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
-                <img
-                  src={reelVlog}
-                  alt="Vertical travel vlog reel edited by Zenifilm"
-                  width={768}
-                  height={1344}
-                  className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <span className="absolute bottom-3 left-3 rounded-full bg-ink/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-ink-foreground">
-                  Vlog Reel
-                </span>
-              </figure>
-              <div className="space-y-4 pt-12">
-                <figure className="group relative aspect-[9/16] overflow-hidden rounded-2xl border border-border bg-card shadow-elegant">
-                  <img
-                    src={reelDoc}
-                    alt="Vertical documentary interview reel edited by Zenifilm"
-                    width={768}
-                    height={1344}
-                    className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <span className="absolute bottom-3 left-3 rounded-full bg-ink/70 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-ink-foreground">
-                    Doc Series
-                  </span>
-                </figure>
-              </div>
-            </div>
-            <div
-              className="pointer-events-none absolute -bottom-10 -left-10 size-32 rounded-full opacity-25 blur-3xl"
-              style={{ backgroundImage: "var(--gradient-brand)" }}
-              aria-hidden="true"
-            />
+            <ReelWall />
           </div>
+
         </div>
       </section>
 
