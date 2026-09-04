@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -7,6 +8,7 @@ import { FaqSection } from "@/components/site/FaqSection";
 import { ReadyToBookSection } from "@/components/site/ReadyToBookSection";
 import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { ReelWall } from "@/components/site/ReelWall";
+import { VideoLightbox, type VideoProject } from "@/components/site/VideoLightbox";
 import showreelCover from "@/assets/showreel-cover.jpg";
 import workEducation from "@/assets/work-education.jpg";
 import workGaming from "@/assets/work-gaming.jpg";
