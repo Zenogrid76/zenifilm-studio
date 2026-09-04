@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -7,6 +8,7 @@ import { FaqSection } from "@/components/site/FaqSection";
 import { ReadyToBookSection } from "@/components/site/ReadyToBookSection";
 import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { ReelWall } from "@/components/site/ReelWall";
+import { VideoLightbox, type VideoProject } from "@/components/site/VideoLightbox";
 import showreelCover from "@/assets/showreel-cover.jpg";
 import workEducation from "@/assets/work-education.jpg";
 import workGaming from "@/assets/work-gaming.jpg";
@@ -92,24 +94,44 @@ const services = [
   },
 ];
 
-const works = [
+const showreelProject: VideoProject = {
+  title: "Zenifilm 2024 Showreel",
+  description:
+    "A two-minute look at the edits, grades and motion work we delivered this year. Long form, short form and motion graphics — all under one roof.",
+  tags: ["Showreel", "Long form", "Short form", "Motion GFX"],
+  videoUrl: "https://www.youtube.com/watch?v=YE7VzlLtp-4",
+};
+
+const works: (VideoProject & { img: string; tag: string; tone: string })[] = [
   {
     img: workEducation,
     tag: "Education",
     tone: "text-tertiary",
     title: "The Future of AI: Explainer Series",
+    description:
+      "EdTech explainer series blending live footage, motion graphics and clean chapter pacing for an online learning platform.",
+    tags: ["Education", "Explainer", "Motion GFX"],
+    videoUrl: "https://www.youtube.com/watch?v=eRsGyueVQ1c",
   },
   {
     img: workGaming,
     tag: "Gaming",
     tone: "text-primary",
     title: "Hyper-Fast Montage: Nexus Elite",
+    description:
+      "High-energy gaming montage with synced kills, facecam reactions and custom sound design for a competitive FPS creator.",
+    tags: ["Gaming", "Montage", "Sound design"],
+    videoUrl: "https://www.youtube.com/watch?v=GAqNiyog7Zo",
   },
   {
     img: workVlog,
     tag: "Vlog",
     tone: "text-tertiary",
     title: "24 Hours in Tokyo: 4K Cinematic",
+    description:
+      "Cinematic travel vlog cut to music with color-graded city footage, transitions and platform-native exports.",
+    tags: ["Vlog", "Travel", "Color grade"],
+    videoUrl: "https://www.youtube.com/watch?v=TLkA0RE67cI",
   },
 ];
 
@@ -121,6 +143,19 @@ const stats = [
 ];
 
 function Home() {
+  const [activeProject, setActiveProject] = useState<VideoProject | null>(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  const openLightbox = (project: VideoProject) => {
+    setActiveProject(project);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+    setActiveProject(null);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
@@ -187,7 +222,19 @@ function Home() {
             <div className="font-display text-5xl font-extrabold text-primary/30">01 / 06</div>
           </div>
 
-          <figure className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-3xl border border-ink-foreground/10">
+          <figure
+            className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-3xl border border-ink-foreground/10"
+            onClick={() => openLightbox(showreelProject)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openLightbox(showreelProject);
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Play Zenifilm 2024 Showreel"
+          >
             <img
               src={showreelCover}
               alt="Zenifilm showreel: cinematic editing suite with color-graded timelines"
@@ -275,8 +322,21 @@ function Home() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {works.map((w) => (
-              <Link key={w.title} to="/portfolio" className="group block">
-                <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all group-hover:shadow-elegant">
+              <article
+                key={w.title}
+                className="group block cursor-pointer"
+                onClick={() => openLightbox(w)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openLightbox(w);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`Play ${w.title}`}
+              >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all group-hover:shadow-elegant">
                   <img
                     src={w.img}
                     alt={w.title}
@@ -285,6 +345,12 @@ function Home() {
                     loading="lazy"
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <span className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/10" />
+                  <span className="absolute inset-0 grid place-items-center opacity-0 transition-opacity group-hover:opacity-100">
+                    <span className="grid size-14 place-items-center rounded-full bg-card shadow-elegant">
+                      <span className="ml-1 size-0 border-y-[8px] border-l-[14px] border-y-transparent border-l-ink" />
+                    </span>
+                  </span>
                 </div>
                 <div className="mt-4">
                   <span
@@ -294,7 +360,7 @@ function Home() {
                   </span>
                   <h3 className="text-lg font-bold">{w.title}</h3>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </div>
