@@ -322,8 +322,21 @@ function Home() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {works.map((w) => (
-              <Link key={w.title} to="/portfolio" className="group block">
-                <div className="aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all group-hover:shadow-elegant">
+              <article
+                key={w.title}
+                className="group block cursor-pointer"
+                onClick={() => openLightbox(w)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    openLightbox(w);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`Play ${w.title}`}
+              >
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-background shadow-sm transition-all group-hover:shadow-elegant">
                   <img
                     src={w.img}
                     alt={w.title}
@@ -332,6 +345,12 @@ function Home() {
                     loading="lazy"
                     className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <span className="absolute inset-0 bg-ink/0 transition-colors group-hover:bg-ink/10" />
+                  <span className="absolute inset-0 grid place-items-center opacity-0 transition-opacity group-hover:opacity-100">
+                    <span className="grid size-14 place-items-center rounded-full bg-card shadow-elegant">
+                      <span className="ml-1 size-0 border-y-[8px] border-l-[14px] border-y-transparent border-l-ink" />
+                    </span>
+                  </span>
                 </div>
                 <div className="mt-4">
                   <span
@@ -341,7 +360,7 @@ function Home() {
                   </span>
                   <h3 className="text-lg font-bold">{w.title}</h3>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </div>
