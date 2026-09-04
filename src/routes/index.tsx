@@ -143,6 +143,19 @@ const stats = [
 ];
 
 function Home() {
+  const [activeProject, setActiveProject] = useState<VideoProject | null>(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+
+  const openLightbox = (project: VideoProject) => {
+    setActiveProject(project);
+    setIsLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+    setActiveProject(null);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SiteHeader />
