@@ -222,7 +222,19 @@ function Home() {
             <div className="font-display text-5xl font-extrabold text-primary/30">01 / 06</div>
           </div>
 
-          <figure className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-3xl border border-ink-foreground/10">
+          <figure
+            className="group relative aspect-video w-full cursor-pointer overflow-hidden rounded-3xl border border-ink-foreground/10"
+            onClick={() => openLightbox(showreelProject)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openLightbox(showreelProject);
+              }
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label="Play Zenifilm 2024 Showreel"
+          >
             <img
               src={showreelCover}
               alt="Zenifilm showreel: cinematic editing suite with color-graded timelines"
