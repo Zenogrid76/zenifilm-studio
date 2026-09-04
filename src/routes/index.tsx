@@ -94,24 +94,44 @@ const services = [
   },
 ];
 
-const works = [
+const showreelProject: VideoProject = {
+  title: "Zenifilm 2024 Showreel",
+  description:
+    "A two-minute look at the edits, grades and motion work we delivered this year. Long form, short form and motion graphics — all under one roof.",
+  tags: ["Showreel", "Long form", "Short form", "Motion GFX"],
+  videoUrl: "https://www.youtube.com/watch?v=YE7VzlLtp-4",
+};
+
+const works: (VideoProject & { img: string; tag: string; tone: string })[] = [
   {
     img: workEducation,
     tag: "Education",
     tone: "text-tertiary",
     title: "The Future of AI: Explainer Series",
+    description:
+      "EdTech explainer series blending live footage, motion graphics and clean chapter pacing for an online learning platform.",
+    tags: ["Education", "Explainer", "Motion GFX"],
+    videoUrl: "https://www.youtube.com/watch?v=eRsGyueVQ1c",
   },
   {
     img: workGaming,
     tag: "Gaming",
     tone: "text-primary",
     title: "Hyper-Fast Montage: Nexus Elite",
+    description:
+      "High-energy gaming montage with synced kills, facecam reactions and custom sound design for a competitive FPS creator.",
+    tags: ["Gaming", "Montage", "Sound design"],
+    videoUrl: "https://www.youtube.com/watch?v=GAqNiyog7Zo",
   },
   {
     img: workVlog,
     tag: "Vlog",
     tone: "text-tertiary",
     title: "24 Hours in Tokyo: 4K Cinematic",
+    description:
+      "Cinematic travel vlog cut to music with color-graded city footage, transitions and platform-native exports.",
+    tags: ["Vlog", "Travel", "Color grade"],
+    videoUrl: "https://www.youtube.com/watch?v=TLkA0RE67cI",
   },
 ];
 
