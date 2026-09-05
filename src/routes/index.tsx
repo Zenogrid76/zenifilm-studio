@@ -450,6 +450,8 @@ function Home() {
       </section>
 
       <SiteFooter />
+
+      <VideoLightbox project={activeProject} isOpen={isLightboxOpen} onClose={closeLightbox} />
     </div>
   );
 }
