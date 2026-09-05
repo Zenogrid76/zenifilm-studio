@@ -131,7 +131,7 @@ const works: (VideoProject & { img: string; tag: string; tone: string })[] = [
     description:
       "Cinematic travel vlog cut to music with color-graded city footage, transitions and platform-native exports.",
     tags: ["Vlog", "Travel", "Color grade"],
-    videoUrl: "https://www.youtube.com/watch?v=TLkA0RE67cI",
+    videoUrl: "https://www.youtube.com/watch?v=YE7VzlLtp-4",
   },
 ];
 
