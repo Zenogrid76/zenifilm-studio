@@ -49,8 +49,6 @@ const demoVideos = [
   "https://www.youtube.com/watch?v=YE7VzlLtp-4",
   "https://www.youtube.com/watch?v=eRsGyueVQ1c",
   "https://www.youtube.com/watch?v=GAqNiyog7Zo",
-  "https://www.youtube.com/watch?v=TLkA0RE67cI",
-  "https://vimeo.com/824804225",
 ];
 
 let videoIndex = 0;
