@@ -1,56 +1,109 @@
 const testimonials = [
   {
+    quote: "Simply the best editor we’ve had.",
+    name: "Jim Fahad Digital",
+    role: "Digital Creator",
+    image: "/images/testimonials/jfd.jpg",
+  },
+  {
+    quote: "Mahmud can take messy footage and turn it into something polished and engaging.",
+    name: "Eve Kilcher Homestead",
+    role: "Creator Brand",
+    image: "/images/testimonials/ekh.jpg",
+  },
+  {
+    quote: "Excellent turnaround, reliable delivery, and nothing gets missed.",
+    name: "Chewed Up",
+    role: "Production Team",
+    image: "/images/testimonials/cu.jpg",
+  },
+
+  {
     quote:
-      "Zenifilm turned our raw vlogs into something that feels like a streaming doc. Average view duration went up 34% in two months.",
-    name: "Maya Rahman",
-    role: "Creator · 480K subs",
-    initials: "MR",
+      "The revision process is incredibly smooth. Changes are handled without any extra hassle, and the turnaround on revisions is impressively fast.",
+    name: "Kaizen",
+    role: "Finance Brand",
+    image: "/images/testimonials/kaizen.jpg",
   },
   {
     quote:
-      "The retainer is the whole point. We upload footage on Monday and polished reels are live by Wednesday, every single week.",
-    name: "Devon Klein",
-    role: "Founder · SaaS brand",
-    initials: "DK",
+      "The ads Mahmud created for our website were insanely effective. They presented the product perfectly and helped us sell it incredibly well.",
+    name: "Kitpapa",
+    role: "Website Brand",
+    image: "/images/testimonials/Kitpapa-Logo.png",
   },
   {
     quote:
-      "Motion graphics that actually match our brand kit, and they have never missed a deadline. That's rare in this space.",
-    name: "Lena Prakash",
-    role: "Head of Marketing",
-    initials: "LP",
+      "An incredibly hardworking editor who can switch gears quickly, adapt to feedback, and still maintain a high standard of work.",
+    name: "Framelabs",
+    role: "Production Team",
+    image: "/images/testimonials/framelabs.svg",
   },
 ];
+
+function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[number] }) {
+  return (
+    <blockquote className="testimonial-card shrink-0 rounded-3xl border border-border bg-background p-8 shadow-sm">
+      <div className="font-display text-4xl font-extrabold text-primary/20">&ldquo;</div>
+
+      <p className="mt-2 min-h-[90px] text-sm leading-relaxed text-foreground/75">
+        {testimonial.quote}
+      </p>
+
+      <footer className="mt-8 flex items-center gap-3">
+        <img
+          src={testimonial.image}
+          alt={testimonial.name}
+          loading="lazy"
+          className="size-11 rounded-full object-cover"
+        />
+
+        <div>
+          <span className="block text-sm font-bold">{testimonial.name}</span>
+
+          <span className="block text-xs text-muted-foreground">{testimonial.role}</span>
+        </div>
+      </footer>
+    </blockquote>
+  );
+}
 
 export function TestimonialsSection() {
   return (
     <section className="border-y border-border bg-card py-24">
       <div className="mx-auto max-w-7xl px-6">
+        {/* Header */}
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-          <h2 className="font-display text-4xl font-bold">What clients say</h2>
-          <p className="max-w-sm text-sm text-foreground/60">
-            20+ creators and brands trust Zenifilm as their in-house post team.
+          <div>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Client Feedback
+            </span>
+
+            <h2 className="mt-3 font-display text-4xl font-bold">Words From Past Collaborations</h2>
+          </div>
+
+          <p className="max-w-md text-sm leading-relaxed text-foreground/60">
+            Feedback from clients who have worked directly with Mahmud Reza Mahim, founder and lead
+            editor of Zenifilm Studio.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <blockquote
-              key={t.name}
-              className="rounded-3xl border border-border bg-background p-8 transition-all hover:-translate-y-1 hover:shadow-soft"
-            >
-              <div className="font-display text-4xl font-extrabold text-primary/20">&ldquo;</div>
-              <p className="mt-2 text-sm leading-relaxed text-foreground/75">{t.quote}</p>
-              <footer className="mt-8 flex items-center gap-3">
-                <span className="grid size-10 place-items-center rounded-full gradient-brand text-xs font-bold text-primary-foreground">
-                  {t.initials}
-                </span>
-                <span>
-                  <span className="block text-sm font-bold">{t.name}</span>
-                  <span className="block text-xs text-muted-foreground">{t.role}</span>
-                </span>
-              </footer>
-            </blockquote>
-          ))}
+
+        {/* Testimonial slider */}
+        <div className="testimonial-viewport overflow-hidden">
+          <div className="testimonial-track">
+            <div className="testimonial-group">
+              {testimonials.map((testimonial, index) => (
+                <TestimonialCard key={`first-${index}`} testimonial={testimonial} />
+              ))}
+            </div>
+
+            {/* Duplicate for seamless loop */}
+            <div className="testimonial-group" aria-hidden="true">
+              {testimonials.map((testimonial, index) => (
+                <TestimonialCard key={`second-${index}`} testimonial={testimonial} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

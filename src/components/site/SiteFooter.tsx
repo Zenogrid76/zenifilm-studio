@@ -16,15 +16,21 @@ export function SiteFooter() {
           <Link to="/contact" className="transition-colors hover:text-primary">
             Contact
           </Link>
-          <a href="https://youtube.com" className="transition-colors hover:text-primary">
+          <a
+            href="https://www.youtube.com/@Zenogrid"
+            className="transition-colors hover:text-primary"
+          >
             YouTube
           </a>
-          <a href="https://instagram.com" className="transition-colors hover:text-primary">
+          <a
+            href="https://www.instagram.com/zenogrid/"
+            className="transition-colors hover:text-primary"
+          >
             Instagram
           </a>
         </nav>
         <p className="text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} Zenifilm Agency. All rights reserved.
+          &copy; {new Date().getFullYear()} Zenifilm Studio. All rights reserved.
         </p>
       </div>
     </footer>

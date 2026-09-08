@@ -98,7 +98,6 @@
   }
 }
 
-
 @keyframes rise {
   from {
     opacity: 0;
@@ -138,11 +137,7 @@
   --border: oklch(0.916 0.012 264.5);
   --input: oklch(0.916 0.012 264.5);
   --ring: oklch(0.541 0.281 293.009);
-  --gradient-brand: linear-gradient(
-    100deg,
-    oklch(0.541 0.281 293.009),
-    oklch(0.623 0.214 259.815)
-  );
+  --gradient-brand: linear-gradient(100deg, oklch(0.541 0.281 293.009), oklch(0.623 0.214 259.815));
   --gradient-glow: radial-gradient(
     45% 55% at 50% 45%,
     color-mix(in oklab, var(--primary) 32%, transparent),
@@ -165,7 +160,6 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
 }
-
 
 .dark {
   --background: oklch(0.129 0.042 264.695);
@@ -233,3 +227,138 @@
   box-shadow: var(--shadow-soft);
 }
 
+/* MOBILE — fade all four sides */
+.reel-frame {
+  -webkit-mask-image:
+    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+
+  mask-composite: intersect;
+}
+
+/* DESKTOP — original soft fade */
+@media (min-width: 768px) {
+  .reel-frame {
+    -webkit-mask-image: radial-gradient(ellipse at center, black 70%, transparent 100%);
+
+    mask-image: radial-gradient(ellipse at center, black 70%, transparent 100%);
+  }
+}
+
+@keyframes badge-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-badge-float {
+  animation: badge-float 2.2s ease-in-out infinite;
+}
+
+@keyframes testimonials-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Testimonial viewport with faded edges */
+.testimonial-viewport {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+}
+
+
+/* Infinite track */
+.testimonial-track {
+  display: flex;
+  width: max-content;
+  animation: testimonials-scroll-right 45s linear infinite;
+}
+
+
+/* Each set of 6 */
+.testimonial-group {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+}
+
+
+/* Exactly 3 visible on desktop */
+.testimonial-card {
+  width: calc((min(1280px, 100vw - 48px) - 48px) / 3);
+  min-width: 300px;
+}
+
+
+/* Left → right movement */
+@keyframes testimonials-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+/* Pause when someone wants to read */
+.testimonial-track:hover {
+  animation-play-state: paused;
+}
+
+
+/* Mobile */
+@media (max-width: 767px) {
+  .testimonial-card {
+    width: 82vw;
+    min-width: 82vw;
+  }
+
+  .testimonial-viewport {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 8%,
+      black 92%,
+      transparent 100%
+    );
+  }
+}

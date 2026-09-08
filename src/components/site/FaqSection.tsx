@@ -1,23 +1,27 @@
 const faqs = [
   {
-    q: "How does the monthly retainer work?",
-    a: "You pay once a month, drop footage in a shared folder, and we deliver the agreed number of edits on a rolling schedule. No per-project invoices, no surprises.",
+    q: "How does the monthly plan work?",
+    a: "Send us your footage and we’ll assign an editor who becomes familiar with your content and editing style. We download the footage, edit the project, and send you a first draft for review. From there, we handle your feedback and revisions until the video is ready to publish.",
   },
   {
-    q: "What is your typical turnaround?",
-    a: "Short-form lands in 48 hours, long-form in 3–5 business days depending on run time and revision rounds.",
+    q: "What is your typical turnaround time?",
+    a: "We aim to deliver most standard edits within 24 hours, with 48 hours being our usual turnaround. Projects with very large files may require an additional day for downloading and preparation. Motion graphics and promotional videos typically take 3–5 business days depending on complexity.",
   },
   {
-    q: "How many revisions do I get?",
-    a: "Unlimited revisions within the scope of the original brief. We keep iterating until the cut is right.",
+    q: "How many revisions are included?",
+    a: "Revisions are unlimited within the scope of the original brief. We’ll keep refining the edit until you’re happy with it. Additional charges may apply if new footage, major additions, or significant changes outside the original scope are requested.",
   },
   {
-    q: "Do you handle color grading, sound and thumbnails?",
-    a: "Yes. Every delivery includes a signature grade, cleaned dialogue, licensed music and SFX. Thumbnails are included on the Full Channel plan.",
+    q: "What types of videos do you edit?",
+    a: "We specialize in vlogs, talking-head content, YouTube videos, Shorts, Reels, multicam videos, tutorials, reviews, and motion-driven content. We can also repurpose long-form footage into short-form content so you can get more value from every shoot.",
   },
   {
-    q: "Which formats do you deliver?",
-    a: "Platform-native exports for YouTube, Instagram, TikTok and Facebook — including vertical reframes of long-form footage.",
+    q: "How does project-based pricing work?",
+    a: "We start with a quick conversation about your project, footage, editing style, and requirements. Once we understand the brief, we provide a custom quote based on the complexity and amount of post-production involved.",
+  },
+  {
+    q: "Can you match my existing editing style?",
+    a: "Yes. Our editors can study your existing content, references, graphics, pacing, and overall style to make the transition feel seamless. The goal is for your audience to feel like nothing changed.",
   },
 ];
 
