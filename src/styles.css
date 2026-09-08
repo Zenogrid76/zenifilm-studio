@@ -1,6 +1,7 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
+
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -286,15 +287,8 @@
     transparent 100%
   );
 
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 7%,
-    black 93%,
-    transparent 100%
-  );
+  mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
 }
-
 
 /* Infinite track */
 .testimonial-track {
@@ -303,7 +297,6 @@
   animation: testimonials-scroll-right 45s linear infinite;
 }
 
-
 /* Each set of 6 */
 .testimonial-group {
   display: flex;
@@ -311,13 +304,11 @@
   padding-right: 24px;
 }
 
-
 /* Exactly 3 visible on desktop */
 .testimonial-card {
   width: calc((min(1280px, 100vw - 48px) - 48px) / 3);
   min-width: 300px;
 }
-
 
 /* Left → right movement */
 @keyframes testimonials-scroll-right {
@@ -330,12 +321,10 @@
   }
 }
 
-
 /* Pause when someone wants to read */
 .testimonial-track:hover {
   animation-play-state: paused;
 }
-
 
 /* Mobile */
 @media (max-width: 767px) {
@@ -353,12 +342,6 @@
       transparent 100%
     );
 
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      black 8%,
-      black 92%,
-      transparent 100%
-    );
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   }
 }

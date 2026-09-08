@@ -406,6 +406,7 @@ function WorkCard({
    PORTFOLIO PAGE
 ========================================================= */
 
+
 function PortfolioPage() {
   const [selectedProject, setSelectedProject] = useState<VideoProject | null>(null);
 
