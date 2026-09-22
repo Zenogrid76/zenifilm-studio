@@ -3,6 +3,7 @@ import { useState } from "react";
 type ContactFormProps = {
   subject?: string;
 };
+import { trackContactSubmitted, trackEmailClicked } from "@/analytics/amplitude";
 
 export function ContactForm({ subject = "New Zenifilm Website Inquiry" }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -29,6 +30,12 @@ export function ContactForm({ subject = "New Zenifilm Website Inquiry" }: Contac
       const result = await response.json();
 
       if (result.success) {
+        trackContactSubmitted({
+          service: String(data.service || ""),
+
+          contentType: String(data.content_type || ""),
+        });
+
         setStatus("success");
         form.reset();
       } else {
@@ -219,10 +226,10 @@ export function ContactForm({ subject = "New Zenifilm Website Inquiry" }: Contac
       <div className="mt-2 border-t border-border pt-5 text-center text-sm text-muted-foreground">
         Or send us an email at{" "}
         <a
-          href="mailto:mahmud.rezamahim@gmail.com"
+          href="mailto:zenifilm.studio@gmail.com"
           className="font-semibold text-primary hover:underline"
         >
-          mahmud.rezamahim@gmail.com
+          zenifilm.studio@gmail.com
         </a>
       </div>
     </form>

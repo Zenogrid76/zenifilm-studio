@@ -14,6 +14,7 @@ import workVlog from "@/assets/work-vlog.jpg";
 import { useState } from "react";
 import { VideoLightbox, type VideoProject } from "@/components/site/VideoLightbox";
 import { ContactForm } from "@/components/site/ContactForm";
+import { trackCtaClicked } from "@/analytics/amplitude";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -149,7 +150,7 @@ const works = [
 
     tags: ["Promo", "Brand Video", "Color Grading", "Sound Design"],
 
-    videoUrl: "https://drive.google.com/file/d/12HFoPEJf8sgp8Hbl7nHUfLxlx4Za9zYq/view?usp=sharing",
+    videoUrl: "https://youtu.be/oCeifbaXLRM",
   },
 
   {
@@ -163,7 +164,7 @@ const works = [
 
     tags: ["Tutorial", "Motion Graphics", "After Effects"],
 
-    videoUrl: "https://drive.google.com/file/d/1zS7qAqnm19mdzyXhcRsTFfuWVq9PVTWx/view?usp=sharing",
+    videoUrl: "https://youtu.be/53PmVlURojs",
   },
 
   {
@@ -177,7 +178,7 @@ const works = [
 
     tags: ["Promo", "Advertisement", "Color Grading", "Sound Design"],
 
-    videoUrl: "https://drive.google.com/file/d/14y4Z2QtZHUnUBpj4c0zEp75ZyYK0zQUB/view?usp=sharing",
+    videoUrl: "https://youtu.be/zXwd3iz3epU",
   },
 ];
 

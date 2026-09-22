@@ -11,6 +11,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { initAmplitude } from "@/analytics/amplitude";
 
 function NotFoundComponent() {
   return (
@@ -130,6 +131,9 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  useEffect(() => {
+    initAmplitude();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

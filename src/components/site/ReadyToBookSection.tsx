@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { trackCtaClicked } from "@/analytics/amplitude";
 
 export function ReadyToBookSection() {
   return (
@@ -28,7 +29,13 @@ export function ReadyToBookSection() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="rounded-full gradient-brand px-8 py-4 text-sm font-bold text-primary-foreground transition-all hover:brightness-110"
+                onClick={() =>
+                  trackCtaClicked({
+                    name: "Free Sample Edit",
+                    location: "Free Sample CTA",
+                  })
+                }
+                className="..."
               >
                 Get My Free Sample
               </Link>
