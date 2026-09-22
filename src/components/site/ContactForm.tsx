@@ -4,6 +4,7 @@ type ContactFormProps = {
   subject?: string;
 };
 import { trackContactSubmitted, trackEmailClicked } from "@/analytics/amplitude";
+import { useEffect } from "react";
 
 export function ContactForm({ subject = "New Zenifilm Website Inquiry" }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
